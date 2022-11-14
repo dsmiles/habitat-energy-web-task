@@ -1,0 +1,20 @@
+[
+  {
+    "firstName": "Franklin",
+    "lastName": "Jones",
+    "age": 35,
+    "emailAddress": "fjonesGmail.com",
+    "address": {
+      "streetAddress": "200 Julius Road",
+      "city": "Bristol",
+      "postCode": "BS7 8EU",
+      "state": "",
+      "country": "UK",
+      "county": ""
+    },
+    "phoneNumber": {
+      "home": "012345678",
+      "mob": "012345678"
+    }
+  }
+]
