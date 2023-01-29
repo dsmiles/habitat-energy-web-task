@@ -83,6 +83,7 @@ public class MenuBarPage {
 
     public void clickMarketDataMenu() {
         marketDataMenu.click();
+        Wait.untilPageLoadComplete(driver);
     }
 
     public void clickMarketDataMenuItem(String menuItem) {
@@ -137,6 +138,7 @@ public class MenuBarPage {
 
     public void clickTradingServicesMenu() {
         tradingServicesMenu.click();
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickTradingServicesMenuItem(String menuItem) {
@@ -145,6 +147,7 @@ public class MenuBarPage {
 
     public void clickMarketRegulationsMenu() {
         marketRegulationsMenu.click();
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickMarketRegulationsMenuItem(String menuItem) {
@@ -153,6 +156,7 @@ public class MenuBarPage {
 
     public void clickCorporateMenu() {
         corporateMenu.click();
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickCorporateMenuItem(String menuItem) {

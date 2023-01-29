@@ -1,18 +1,13 @@
 package utils;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import selenium.Wait;
 
 public class PageHelper {
 
     public static boolean iAmOnPage(WebDriver driver, String pageName) {
-        // TODO Replace with WaitCondition
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        final String title = driver.getTitle();
-        return title.contains(pageName);
+        Wait.until(driver, ExpectedConditions.titleContains(pageName));
+        return driver.getTitle().contains(pageName);
     }
-
 }

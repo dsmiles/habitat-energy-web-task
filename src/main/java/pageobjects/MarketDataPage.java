@@ -104,98 +104,99 @@ public class MarketDataPage {
         setCookie("cookie-agreed", "2");
         setCookie("cookie-agreed-categories", "1");
         driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickAcceptanceButton() {
         acceptanceButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickAgreeAllCookiesButton() {
         agreeAllCookiesButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickResetButton() {
         resetFiltersButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickAuctionButton() {
         auctionButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickContinuousButton() {
         continuousButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickCapacityButton() {
         capacityButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickOriginButton() {
         originButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickDayaHeadButton() {
         dayaHeadButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickIntraDayButton() {
         intraDayButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickTradingDateButton() {
         tradingDateButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickDeliveryDateButton() {
         deliveryDateButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickProduct60minButton () {
         product60minButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickProduct30minButton() {
         product30minButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickViewMapButton() {
         viewMapButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickViewTableButton() {
         viewTableButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickViewGraphButton() {
         viewGraphButton.click();
-        Wait.untilJqueryIsDone(driver);
         Wait.untilPageLoadComplete(driver);
     }
 
     public void clickViewAggregatedCurvesButton() {
         viewAggregatedCurvesButton.click();
-        Wait.untilJqueryIsDone(driver);
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public void clickOnTimelineFilterByHour(String hourFilter) {
         String selector = "div[class~='timeline'] div.item .js-timeline-hour[data-value='"+ hourFilter + "']";
         WebElement element = driver.findElement(By.cssSelector(selector));
         element.click();
+        Wait.untilPageLoadComplete(driver, 5L);
     }
 
     public List<MapValue> getMapValues() {
@@ -210,9 +211,7 @@ public class MarketDataPage {
             MapValue mapValue = new MapValue(dataCode, transform, price);
             values.add(mapValue);
         }
-//        for (MapValue v : values) {
-//            System.out.println(v.getDataCode() + " " + v.getTransform() + " " + v.getPrice());
-//        }
+        printMapValues(values);
         return values;
     }
 
@@ -227,9 +226,19 @@ public class MarketDataPage {
             MapPolygon polygon = new MapPolygon(Boolean.FALSE, dataCode, points);
             polygons.add(polygon);
         }
-//        for (MapPolygon p : polygons) {
-//            System.out.println(p.getHasValue() + " " + p.getDataCode() + " ");
-//        }
+        printMapPolygons(polygons);
         return polygons;
+    }
+
+    public void printMapValues(List<MapValue> values) {
+        for (MapValue v : values) {
+            System.out.println(v.getDataCode() + " " + v.getTransform() + " " + v.getPrice());
+        }
+    }
+
+    public void printMapPolygons(List<MapPolygon> polygons) {
+        for (MapPolygon p : polygons) {
+            System.out.println(p.getHasValue() + " " + p.getDataCode() + " ");
+        }
     }
 }

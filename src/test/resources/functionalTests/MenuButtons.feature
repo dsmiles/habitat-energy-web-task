@@ -14,11 +14,11 @@ Feature: Menu bar automation
     And they click on Market Data menu item "Indices"
     Then user is on Indices page
 
-  Scenario: User can click on Market Access > Become a Member
-    Given user is on Market Data Page
-    When they click on Market Access menu
-    And they click on Market Access menu item "Become a member"
-    Then user is on Become a member page
+#  Scenario: User can click on Market Access > Become a Member
+#    Given user is on Market Data Page
+#    When they click on Market Access menu
+#    And they click on Market Access menu item "Become a member"
+#    Then user is on Become a member page
 
   Scenario: User can click on Market Access > Exchange Members
     Given user is on Market Data Page

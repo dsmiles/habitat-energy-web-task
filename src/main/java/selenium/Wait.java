@@ -17,7 +17,7 @@ public class Wait {
     public static void untilJqueryIsDone(WebDriver driver, Long timeoutInSeconds) {
         until(driver, (d) ->
         {
-            Boolean isJqueryCallDone = (Boolean) ((JavascriptExecutor) driver).executeScript("return jQuery.active==0");
+            Boolean isJqueryCallDone = (Boolean) ((JavascriptExecutor) driver).executeScript("return jQuery.active===0");
             if (!isJqueryCallDone) {
                 System.out.println("JQuery call is in Progress");
             }
@@ -32,7 +32,7 @@ public class Wait {
     public static void untilPageLoadComplete(WebDriver driver, Long timeoutInSeconds) {
         until(driver, (d) ->
         {
-            Boolean isPageLoaded = ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+            boolean isPageLoaded = ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
             if (!isPageLoaded) {
                 System.out.println("Document is loading");
             }

@@ -9,7 +9,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.MarketDataPage;
 
-
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -139,20 +138,23 @@ public class MarketDataSteps {
 
     @Then("map values have changed")
     public void verifyMapValuesHaveChanged() {
-        List<MapValue> previousValues = (List<MapValue>) testContext.getScenarioContext().getContext(Context.MAP_VALUES);
-        List<MapPolygon> previousPolygons = (List<MapPolygon>) testContext.getScenarioContext().getContext(Context.MAP_POLYGON);
-        assertThat(previousValues).isNotNull();
-        assertThat(previousPolygons).isNotNull();
-
         List<MapValue> currentValues = marketDataPage.getMapValues();
-        List<MapPolygon> currentPolygons = marketDataPage.getMapPolygons();
+        List<MapValue> previousValues = (List<MapValue>) testContext.getScenarioContext().getContext(Context.MAP_VALUES);
         assertThat(currentValues).isNotNull();
+        assertThat(previousValues)
+                .isNotNull()
+                .isNotSameAs(currentValues)
+                .hasSameElementsAs(currentValues);
+    }
+
+    @Then("map polygons have changed")
+    public void verifyMapPolygonsHaveChanged() {
+        List<MapPolygon> currentPolygons = marketDataPage.getMapPolygons();
+        List<MapPolygon> previousPolygons = (List<MapPolygon>) testContext.getScenarioContext().getContext(Context.MAP_POLYGON);
         assertThat(currentPolygons).isNotNull();
-
-        assertThat(previousValues).isNotSameAs(currentValues);
-        assertThat(previousPolygons).isNotSameAs(currentPolygons);
-
-//        assertThat(previousValues).hasSameElementsAs(currentValues);
-//        assertThat(previousPolygons).hasSameElementsAs(currentPolygons);
+        assertThat(previousPolygons)
+                .isNotNull()
+                .isNotSameAs(currentPolygons)
+                .hasSameElementsAs(currentPolygons);
     }
 }
