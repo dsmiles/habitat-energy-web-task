@@ -11,6 +11,8 @@ accepted it, given the interesting nature of the role. Oh well, live and learn.
 
 The task description is [Here](TECHNICAL-TASK.md).
 
+My list of suggested CI/CD and testing recommendations is here [here](RECOMMENDATIONS.md).
+
 ## Framework
 
 I built a UI test framework that combined Behavior-Driven Development (BDD) with Cucumber and Selenium to develop tests
