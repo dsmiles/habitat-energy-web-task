@@ -2,31 +2,41 @@
 
 In November/December 2022, I interviewed for the position of Software Engineer in Test at Habitat Energy in Oxford.
 
-As part of the interview process, I undertook a challenge to develop two automation frameworks — one for an API and one for a web UI.
+As part of the interview process, I undertook a challenge to develop two automation frameworks — one for an API and one
+for a web UI.
 
-I successfully completed the challenge and the interview process, ultimately receiving an offer for the position in December 2022. However, I made the decision to decline the offer. In hindsight, I realize I probably should have accepted it, given the interesting nature of the role. Oh well, live and learn.
+I successfully completed the challenge and the interview process, ultimately receiving an offer for the position in
+December 2022. However, I made the decision to decline the offer. In hindsight, I realize I probably should have
+accepted it, given the interesting nature of the role. Oh well, live and learn.
 
 The task description is [Here](TECHNICAL-TASK.md).
 
+## Framework
+
+I built a UI test framework that combined Behavior-Driven Development (BDD) with Cucumber and Selenium to develop tests
+based on acceptance criteria.  The framework also utilises a number of other components for assertions, web driver
+management, etc., but Cucumber and Selenium are the main ones.
+
 ### BDD Automation with Cucumber
 
-I used Behavior-Driven Development (BDD) with Cucumber and Java to develop the automation scripts (feature files).
+Cucumber is a framework for writing automated tests in a BDD fashion. Its syntax (Gherkin language) allows for more
+readable and comprehensive tests which can be understood by any member of the team. Cucumber can be combined with many
+API or UI frameworks.
+
+### Selenium
+
+Selenium comes with an array of features, and it supports all major web browsers, including Chrome, Firefox, and Safari.
+It also supports all major programming languages, including Java, Python, C#, and JavaScript.
 
 ### Page Object Design Pattern
 
 I used the Page Object Design Pattern (POM). POM, is a design pattern that creates an object repository for storing all
 web elements. It helps reduce code duplication and improves test case maintenance.
 
-In Page Object Model, consider each web page of an application as a class file. Each class file will contain only
+In Page Object Model, you consider each web page of an application as a class file. Each class file will contain only
 corresponding web page elements. Using these elements, testers can perform operations on the website under test.
 
-Advantages of Page Object Model:
-
-- Easy Maintenance
-- Code Reusability
-- Readability and Reliability of scripts
-
-### Installation and Prerequisites
+## Installation and Prerequisites
 
 The following Java components were used in the test framework:
 
@@ -37,27 +47,25 @@ The following Java components were used in the test framework:
     - Maven
     - Cucumber
     - Lombok
-    - JUnit
+    - JUnit / AssertJ
+    - Selenium
 5. Chrome web browser
 6. Firefox web browser
 
-### Framework Setup
+## Running the tests
 
-To set up the framework, you can either clone the repository, or download the ZIP file to your local workspace.
+1. Clone / download the project into your local
+2. Open a command prompt and navigate to project location
+3. Execute the following Maven command's:
 
-### Running the tests
+To clean the Maven repository:
+- `mvn clean`
 
-Open a terminal window, navigate to the project directory and enter the command:
+To install the Maven requirements / dependencies
+- `mvn install`
 
-~~~
-mvn test
-~~~
-
-Maven should automatically download and install the required dependencies before running the tests. If not, then enter the following command:
-
-~~~
-mvn clean install
-~~~
+To execute the test scenarios
+- `mvn test`
 
 You can also run the tests from your IDE, by running the Cucumber feature files.
 
