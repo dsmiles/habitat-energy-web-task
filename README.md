@@ -9,7 +9,7 @@ I successfully completed the challenge and the interview process, ultimately rec
 December 2022. However, I made the decision to decline the offer. In hindsight, I realize I probably should have
 accepted it, given the interesting nature of the role. Oh well, live and learn.
 
-The task description is [Here](TECHNICAL-TASK.md).
+The task description is [here](TECHNICAL-TASK.md). The original task description in PDF format is [here](docs/pdf/Software-in-Test-Challenge.pdf).
 
 My list of suggested CI/CD and testing recommendations is here [here](RECOMMENDATIONS.md).
 
